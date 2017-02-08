@@ -16,7 +16,7 @@ RUN yum -y install fontconfig libxml2 openssl098e libGLU libXpm binutils-devel g
     
 # osg
 RUN yum -y install osg-ca-certs osg-wn-client
-RUN rm -f /etc/grid-security/certificates/*.r0
+RUN mv /etc/grid-security/certificates /etc/grid-security/certificates.osg-ca-certs && ln -s /cvmfs/oasis.opensciencegrid.org/mis/certificates /etc/grid-security/certificates
 
 # htcondor - include so we can chirp
 RUN yum -y install condor
