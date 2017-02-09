@@ -18,13 +18,13 @@ RUN yum -y groupinstall "Additional Development" \
                         "Internet Applications" \
                         "Networking Tools"
 
-RUN yum -y install tcsh wget curl rsync which bc octave octave-devel \
+RUN yum -y install tcsh wget curl rsync which time bc octave octave-devel \
                    fontconfig libxml2 openssl098e libGLU libXpm \
                    binutils-devel gcc libgfortran \
                    subversioni git gcc-gfortran gcc-c++ binutils binutils-devel \
                    python-devel libxml2-devel mesa-libGL-devel \
                    numpy scipy python-astropy astropy-tools \
-                   glew-devel libX11-devel libXpm-devel libXft-devel \
+                   glew-devel libX11-devel libXpm-devel libXft-devel libXt \
                    libXext-deve libXmu-devel tk-devel tcl-devel \
                    glib-devel glib2-devel gsl-devel \
                    java-1.8.0-openjdk java-1.8.0-openjdk-devel \
