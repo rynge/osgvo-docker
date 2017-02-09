@@ -12,20 +12,20 @@ RUN echo -e "# Pegasus\n[Pegasus]\nname=Pegasus\nbaseurl=http://download.pegasus
 
 # well rounded basic system to support a wide range of user jobs
 RUN yum -y grouplist
-RUN yum -y groupinstall "Additional Development" \
-                        "Compatibility Libraries" \
+RUN yum -y groupinstall "Compatibility Libraries" \
                         "Development Tools" \
-                        "Internet Applications" \
-                        "Networking Tools"
+                        "Scientific Support"
 
 RUN yum -y install tcsh wget curl rsync which time bc octave octave-devel \
+                   libtool libtool-ltdl libtool-ltdl-devel \
                    fontconfig libxml2 openssl098e libGLU libXpm \
-                   binutils-devel gcc libgfortran \
-                   subversioni git gcc-gfortran gcc-c++ binutils binutils-devel \
+                   binutils-devel gcc libgfortran libgomp \
+                   subversion git gcc-gfortran gcc-c++ binutils binutils-devel \
+                   libquadmath libicu \
                    python-devel libxml2-devel mesa-libGL-devel \
                    numpy scipy python-astropy astropy-tools \
                    glew-devel libX11-devel libXpm-devel libXft-devel libXt \
-                   libXext-deve libXmu-devel tk-devel tcl-devel \
+                   libXext-devel libXmu-devel tk-devel tcl-devel \
                    glib-devel glib2-devel gsl-devel \
                    java-1.8.0-openjdk java-1.8.0-openjdk-devel \
                    R-devel
