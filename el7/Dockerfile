@@ -11,10 +11,11 @@ RUN yum -y install http://repo.grid.iu.edu/osg/3.3/osg-3.3-el7-release-latest.rp
 RUN echo -e "# Pegasus\n[Pegasus]\nname=Pegasus\nbaseurl=http://download.pegasus.isi.edu/wms/download/rhel/7/\$basearch/\ngpgcheck=0\nenabled=1\npriority=50" >/etc/yum.repos.d/pegasus.repo
 
 # well rounded basic system to support a wide range of user jobs
-RUN yum -y grouplist
-RUN yum -y groupinstall "Compatibility Libraries" \
-                        "Development Tools" \
-                        "Scientific Support"
+RUN yum -y groups mark convert \
+    && yum -y grouplist \
+    && yum -y groupinstall "Compatibility Libraries" \
+                           "Development Tools" \
+                           "Scientific Support"
 
 RUN yum -y install tcsh wget curl rsync which time bc octave octave-devel \
                    libtool libtool-ltdl libtool-ltdl-devel \
@@ -25,15 +26,13 @@ RUN yum -y install tcsh wget curl rsync which time bc octave octave-devel \
                    python-devel libxml2-devel mesa-libGL-devel \
                    numpy scipy python-astropy astropy-tools \
                    glew-devel libX11-devel libXpm-devel libXft-devel libXt \
-                   libXext-devel libXmu-devel tk-devel tcl-devel \
+                   libXaw-devel libXext-devel libXmu-devel tk-devel tcl-devel \
                    glib-devel glib2-devel gsl-devel \
                    java-1.8.0-openjdk java-1.8.0-openjdk-devel \
-                   R-devel
+                   R-devel graphviz
     
 # osg
 RUN yum -y install osg-ca-certs osg-wn-client
-RUN mv /etc/grid-security/certificates /etc/grid-security/certificates.osg-ca-certs \
-    && ln -s /cvmfs/oasis.opensciencegrid.org/mis/certificates /etc/grid-security/certificates
 
 # htcondor - include so we can chirp
 RUN yum -y install condor
@@ -41,8 +40,15 @@ RUN yum -y install condor
 # pegasus
 RUN yum -y install pegasus
 
+# use CA certs from CVMFS
+RUN mv /etc/grid-security/certificates /etc/grid-security/certificates.osg-ca-certs \
+    && ln -s /cvmfs/oasis.opensciencegrid.org/mis/certificates /etc/grid-security/certificates
+
 # required directories
 RUN mkdir -p /cvmfs
+
+# verification
+RUN ls -l /etc/grid-security/
 
 
 
