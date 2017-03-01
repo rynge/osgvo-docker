@@ -50,5 +50,6 @@ RUN mkdir -p /cvmfs
 # verification
 RUN ls -l /etc/grid-security/
 
-
+# build info
+RUN echo "Timestamp:" `date --utc` | tee /image-build-info.txt
 
