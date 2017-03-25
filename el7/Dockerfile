@@ -20,7 +20,7 @@ RUN yum -y groups mark convert \
 RUN yum -y install tcsh wget curl rsync which time bc octave octave-devel \
                    libtool libtool-ltdl libtool-ltdl-devel \
                    fontconfig libxml2 openssl098e libGLU libXpm \
-                   binutils-devel gcc libgfortran libgomp \
+                   gcc libgfortran libgomp \
                    subversion git gcc-gfortran gcc-c++ binutils binutils-devel \
                    libquadmath libicu \
                    python-devel libxml2-devel mesa-libGL-devel \
