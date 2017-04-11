@@ -20,7 +20,8 @@ RUN yum -y grouplist \
                            "Networking Tools" \
                            "Scientific Support"
 
-RUN yum -y install tcsh wget curl rsync which time bc octave octave-devel \
+RUN yum -y install coreutils redhat-lsb-core \
+                   tcsh wget curl rsync which time bc octave octave-devel \
                    fontconfig libxml2 openssl098e libGLU libXpm \
                    gcc libgfortran \
                    subversion git gcc-gfortran gcc-c++ binutils binutils-devel \

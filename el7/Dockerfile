@@ -17,7 +17,8 @@ RUN yum -y groups mark convert \
                            "Development Tools" \
                            "Scientific Support"
 
-RUN yum -y install tcsh wget curl rsync which time bc octave octave-devel \
+RUN yum -y install coreutils redhat-lsb-core \
+                   tcsh wget curl rsync which time bc octave octave-devel \
                    libtool libtool-ltdl libtool-ltdl-devel \
                    fontconfig libxml2 openssl098e libGLU libXpm \
                    gcc libgfortran libgomp \
