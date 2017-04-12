@@ -20,7 +20,7 @@ RUN yum -y grouplist \
                            "Networking Tools" \
                            "Scientific Support"
 
-RUN yum -y install coreutils redhat-lsb-core \
+RUN yum -y install coreutils redhat-lsb-core p7zip p7zip-plugins \
                    tcsh wget curl rsync which time bc octave octave-devel \
                    fontconfig libxml2 openssl098e libGLU libXpm \
                    gcc libgfortran \

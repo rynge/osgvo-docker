@@ -17,7 +17,7 @@ RUN yum -y groups mark convert \
                            "Development Tools" \
                            "Scientific Support"
 
-RUN yum -y install coreutils redhat-lsb-core \
+RUN yum -y install coreutils redhat-lsb-core p7zip p7zip-plugins \
                    tcsh wget curl rsync which time bc octave octave-devel \
                    libtool libtool-ltdl libtool-ltdl-devel \
                    fontconfig libxml2 openssl098e libGLU libXpm \
